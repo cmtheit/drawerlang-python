@@ -1,1 +1,1 @@
-antlr Drawer.g4 -o parser -listener -no-visitor -Dlanguage=Python3
+antlr4 Drawer.g4 -o parser -listener -no-visitor -Dlanguage=Python3
