@@ -1,0 +1,44 @@
+{
+    "name": "drawerlang",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build-parser": "make tsparser",
+        "build": "rm -rf dist && poetry build"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "nx": {
+        "namedInputs": {
+            "grammarSrc": [
+                "{projectRoot}/Drawer.g4"
+            ],
+            "pySrc": [
+                "{projectRoot}/src"
+            ]
+        },
+        "targets": {
+            "build-parser": {
+                "inputs": [
+                    "grammarSrc"
+                ],
+                "outputs": [
+                    "{projectRoot}/src/parser/ts"
+                ]
+            },
+            "build": {
+                "dependsOn": [
+                    "build-parser"
+                ],
+                "inputs": [
+                    "default"
+                ],
+                "outputs": [
+                    "{projectRoot}/dist"
+                ]
+            }
+        }
+    }
+}
